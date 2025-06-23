@@ -13,7 +13,6 @@ import { tansuFramework } from "./frameworks/tansu";
 import { usignalFramework } from "./frameworks/inactive/uSignal";
 import { vueReactivityFramework } from "./frameworks/inactive/vueReactivity";
 import { xReactivityFramework } from "./frameworks/xReactivity";
-import {typeFramework} from "./frameworks/typedomSignals";
 
 // Currently failing kairoBench tests
 // import { molWireFramework } from "./frameworks/molWire";
@@ -23,6 +22,7 @@ import {typeFramework} from "./frameworks/typedomSignals";
 
 // Currently failing cellx tests
 // import { obyFramework } from "./frameworks/inactive/oby";
+import { typeFramework } from "./frameworks/typedomSignals";
 
 export const frameworkInfo: FrameworkInfo[] = [
   { framework: alienFramework, testPullCounts: true },
@@ -36,6 +36,7 @@ export const frameworkInfo: FrameworkInfo[] = [
   { framework: potaFramework },
   { framework: svelteFramework, testPullCounts: true },
   { framework: tansuFramework, testPullCounts: true },
+  // { framework: tc39SignalsFramework, testPullCounts: true },
   { framework: typeFramework, testPullCounts: true },
   { framework: vueReactivityFramework, testPullCounts: true },
   { framework: xReactivityFramework, testPullCounts: true },
