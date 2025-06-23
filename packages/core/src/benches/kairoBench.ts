@@ -26,6 +26,7 @@ export async function kairoBench(
   framework: ReactiveFramework,
   logPerfResult: PerfResultCallback,
 ) {
+  console.warn('kairo bench . ');
   for (const c of cases) {
     const iter = framework.withBuild(() => {
       const iter = c.fn(framework);

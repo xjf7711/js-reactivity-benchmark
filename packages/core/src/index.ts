@@ -6,6 +6,7 @@ import { kairoBench } from "./benches/kairoBench";
 import { promiseDelay } from "./util/asyncUtil";
 import type { FrameworkInfo } from "./util/frameworkTypes";
 import { PerfResultCallback } from "./util/perfLogging";
+import {memoryBench} from "./benches/memoryUsage";
 
 export type { ReactiveFramework } from "./util/reactiveFramework";
 export {
@@ -16,7 +17,7 @@ export {
   type PerfResultStrings,
   type PerfResultCallback,
 } from "./util/perfLogging";
-export { frameworkInfo, allFrameworks } from ".//frameworksList";
+export { frameworkInfo, allFrameworks } from "./frameworksList";
 export type { FrameworkInfo };
 
 export async function runTests(
@@ -25,10 +26,17 @@ export async function runTests(
 ) {
   await promiseDelay(0);
 
+  console.warn('runTests, frameworkInfo is ', frameworkInfo);
   for (const { framework } of frameworkInfo) {
     await kairoBench(framework, logPerfResult);
     await promiseDelay(1000);
   }
+
+  // for (const { framework } of frameworkInfo) {
+  //   console.warn('then memoryBench . '); // node 端运行
+  //   await memoryBench(framework, logPerfResult);
+  //   await promiseDelay(1000);
+  // }
 
   for (const { framework } of frameworkInfo) {
     await molBench(framework, logPerfResult);
